@@ -1,0 +1,2614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicole Arata — Marketing Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1410;
+  --cream: #f5efe4;
+  --cream-warm: #ede4d3;
+  --ember: #d94f1e;
+  --ember-deep: #a83410;
+  --sage: #5c6b4a;
+  --gold: #c9962b;
+  --paper: #faf6ee;
+  --rule: rgba(26, 20, 16, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter Tight', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+.serif { font-family: 'Fraunces', serif; font-style: normal; }
+.serif-italic { font-family: 'Fraunces', serif; font-style: italic; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(250, 246, 238, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo .dot {
+  width: 8px; height: 8px;
+  background: var(--ember);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--ember); }
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: var(--ember);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after { width: 100%; }
+
+/* ===== PAGES ===== */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  padding: 140px 48px 80px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ember);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--ember);
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(56px, 7vw, 104px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  margin-bottom: 32px;
+  color: var(--ink);
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ember-deep);
+  font-variation-settings: "opsz" 144;
+}
+
+.hero-sub {
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 480px;
+  color: rgba(26, 20, 16, 0.78);
+  margin-bottom: 40px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 16px 28px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn-primary:hover {
+  background: var(--ember);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.btn-secondary:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+  height: 600px;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.05) brightness(0.92);
+  box-shadow: 0 30px 80px rgba(26, 20, 16, 0.25);
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.2, 0, 0.2, 1) 0.2s forwards;
+}
+
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(217, 79, 30, 0.08) 0%, transparent 40%, rgba(26, 20, 16, 0.15) 100%);
+  pointer-events: none;
+}
+
+.hero-card {
+  position: absolute;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(26, 20, 16, 0.08);
+}
+
+.card-1 {
+  top: 30px; right: -30px;
+  width: 220px;
+  transform: rotate(-3deg);
+  background: var(--ember);
+  color: var(--cream);
+  border: none;
+  z-index: 2;
+}
+
+.card-1 .num {
+  font-family: 'Fraunces', serif;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-style: italic;
+}
+
+.card-1 .label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 12px;
+  opacity: 0.9;
+}
+
+.card-2 {
+  bottom: 30px; left: -30px;
+  width: 240px;
+  transform: rotate(2deg);
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  z-index: 2;
+}
+
+.card-2 .num {
+  font-family: 'Fraunces', serif;
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.card-2 .label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 12px;
+  color: var(--gold);
+}
+
+.card-3 {
+  top: 220px; right: 60px;
+  width: 220px;
+  transform: rotate(-1.5deg);
+  background: var(--cream-warm);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  z-index: 1;
+}
+
+.card-3 .num {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-style: italic;
+  color: var(--ember-deep);
+}
+
+.card-3 .label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 12px;
+  color: rgba(26, 20, 16, 0.7);
+  line-height: 1.5;
+}
+
+/* ===== ATMOSPHERIC STRIP ===== */
+.atmosphere-strip {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr 1fr 1fr;
+  gap: 4px;
+  padding: 0;
+  height: 280px;
+  background: var(--ink);
+}
+
+.atm-img {
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.95) contrast(1.05);
+  transition: filter 0.4s, transform 0.6s;
+  overflow: hidden;
+}
+
+.atm-img:hover {
+  filter: brightness(1.05) contrast(1.05);
+}
+
+.atm-tall {
+  background-position: center 30%;
+}
+
+/* ===== MARQUEE ===== */
+.marquee-section {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 28px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.marquee {
+  display: flex;
+  gap: 60px;
+  white-space: nowrap;
+  animation: scroll 40s linear infinite;
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.marquee span {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.marquee .star {
+  color: var(--ember);
+  font-style: normal;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== SECTION ===== */
+section.block {
+  padding: 120px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  margin-bottom: 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '§';
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--ember-deep);
+}
+
+/* ===== WORK GRID ===== */
+.work-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: end;
+}
+
+.work-intro p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(26, 20, 16, 0.75);
+  max-width: 480px;
+}
+
+.case-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.case-card {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 48px;
+  align-items: center;
+  padding: 40px 0;
+  border-top: 1px solid var(--rule);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.case-card:last-child { border-bottom: 1px solid var(--rule); }
+
+.case-card::before {
+  content: '';
+  position: absolute;
+  left: -48px; right: -48px;
+  top: 0; bottom: 0;
+  background: var(--cream-warm);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.case-card:hover::before { opacity: 0.6; }
+.case-card:hover .case-arrow { transform: translateX(8px); color: var(--ember); }
+.case-card:hover .case-title { color: var(--ember-deep); }
+
+.case-num {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ember);
+  letter-spacing: 0.05em;
+}
+
+.case-num span {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(26, 20, 16, 0.5);
+  margin-top: 6px;
+}
+
+.case-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  transition: color 0.3s;
+}
+
+.case-title em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.case-meta {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(26, 20, 16, 0.55);
+  font-weight: 500;
+}
+
+.case-arrow {
+  font-size: 32px;
+  color: var(--ink);
+  transition: all 0.3s;
+  font-family: 'Fraunces', serif;
+}
+
+/* ===== PRACTICE AREAS ===== */
+.practice-section {
+  padding-top: 60px;
+}
+
+.practice-intro {
+  max-width: 900px;
+  margin-bottom: 60px;
+}
+
+.practice-sub {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(26, 20, 16, 0.7);
+  max-width: 540px;
+  margin-top: 16px;
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+}
+
+.practice-list {
+  border-top: 1px solid var(--ink);
+}
+
+.practice-row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 60px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.practice-row::before {
+  content: '';
+  position: absolute;
+  left: -48px; right: -48px;
+  top: 0; bottom: 0;
+  background: var(--cream-warm);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.practice-row:hover::before { opacity: 0.4; }
+
+.practice-row:last-child {
+  border-bottom: 1px solid var(--ink);
+}
+
+.practice-row dt {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.practice-row dd {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(26, 20, 16, 0.78);
+  max-width: 640px;
+}
+
+/* ===== PRESS ===== */
+.press-section {
+  padding-top: 60px;
+}
+
+.press-intro {
+  max-width: 900px;
+  margin-bottom: 60px;
+}
+
+.press-grid-three {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.press-feature {
+  display: block;
+  padding: 36px 32px;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.press-feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(26, 20, 16, 0.1);
+}
+
+.press-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ember);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.press-pub {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(26, 20, 16, 0.6);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.press-headline {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+  color: var(--ink);
+  flex-grow: 1;
+}
+
+.press-headline em {
+  font-style: italic;
+  color: var(--ember-deep);
+  font-weight: 300;
+}
+
+.press-meta {
+  font-size: 13px;
+  color: var(--ember);
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+}
+
+/* Secondary press card - Punch */
+.press-secondary {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 32px;
+  align-items: center;
+  padding: 28px 36px;
+  background: var(--cream-warm);
+  border: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.press-secondary + .press-secondary { margin-top: 12px; }
+
+.press-secondary:hover {
+  transform: translateY(-2px);
+  background: var(--cream);
+}
+
+.press-secondary-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ember);
+  font-weight: 600;
+}
+
+.press-secondary-content {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.press-secondary-pub {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(26, 20, 16, 0.6);
+  font-weight: 600;
+}
+
+.press-secondary-headline {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.press-secondary-headline em {
+  font-style: italic;
+  color: var(--ember-deep);
+}
+
+.press-secondary-meta {
+  font-size: 12px;
+  color: var(--ember);
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+}
+
+/* ===== SIDE PROJECTS ===== */
+.side-projects {
+  padding-top: 40px;
+}
+
+.side-intro {
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+
+.sotw-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 60px;
+  background: linear-gradient(135deg, #2a1f17 0%, #1a1410 100%);
+  color: var(--cream);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.sotw-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(217, 79, 30, 0.18), transparent 60%);
+  pointer-events: none;
+}
+
+.sotw-card:hover { transform: translateY(-4px); }
+.sotw-card:hover .sotw-img-1 { transform: rotate(-7deg) translateY(-8px); }
+.sotw-card:hover .sotw-img-2 { transform: rotate(2deg) translateY(-12px); }
+.sotw-card:hover .sotw-img-3 { transform: rotate(5deg) translateY(-6px); }
+.sotw-card:hover .sotw-link span { transform: translateX(8px); }
+
+.sotw-imgs {
+  position: relative;
+  height: 420px;
+}
+
+.sotw-img {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--cream);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.sotw-img-1 {
+  width: 220px; height: 280px;
+  top: 0; left: 20px;
+  transform: rotate(-5deg);
+  z-index: 2;
+}
+
+.sotw-img-2 {
+  width: 240px; height: 300px;
+  top: 60px; right: 0;
+  transform: rotate(4deg);
+  z-index: 3;
+}
+
+.sotw-img-3 {
+  width: 200px; height: 240px;
+  bottom: 0; left: 100px;
+  transform: rotate(7deg);
+  z-index: 1;
+}
+
+.sotw-content {
+  position: relative;
+  z-index: 1;
+}
+
+.sotw-meta {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.sotw-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.sotw-title em {
+  font-style: italic;
+  color: var(--ember);
+  font-weight: 300;
+}
+
+.sotw-desc {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(245, 239, 228, 0.85);
+  margin-bottom: 32px;
+  max-width: 460px;
+}
+
+.sotw-link {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ember);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sotw-link span {
+  font-style: normal;
+  transition: transform 0.3s;
+  display: inline-block;
+}
+
+/* ===== CAREER TIMELINE ===== */
+.timeline-section {
+  padding-top: 60px;
+}
+
+.timeline-intro {
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+
+.timeline {
+  list-style: none;
+  border-top: 1px solid var(--ink);
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  transition: background 0.3s;
+}
+
+.timeline-item:last-child {
+  border-bottom: 1px solid var(--ink);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -48px; right: -48px;
+  top: 0; bottom: 0;
+  background: var(--cream-warm);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.timeline-item:hover::before { opacity: 0.5; }
+
+.timeline-year {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ember);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-year span {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  color: rgba(26, 20, 16, 0.4);
+}
+
+.timeline-body {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: baseline;
+}
+
+.timeline-role {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  grid-column: 1;
+}
+
+.timeline-company {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  font-weight: 600;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.timeline-tag {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: rgba(26, 20, 16, 0.5);
+  grid-column: 1;
+  grid-row: 3;
+  margin-top: 4px;
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+}
+
+.timeline-stat {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: center;
+  line-height: 1.4;
+  padding-left: 32px;
+  border-left: 1px solid var(--rule);
+}
+
+.timeline-stat em {
+  font-family: 'Fraunces', serif;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--ember-deep);
+  font-size: 32px;
+  display: block;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+/* ===== STATS BAND ===== */
+.stats {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 100px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(217, 79, 30, 0.15), transparent 50%);
+  pointer-events: none;
+}
+
+.stats-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.stats .section-label { color: var(--gold); }
+.stats .section-title { color: var(--cream); }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 80px;
+}
+
+.stat {
+  border-top: 1px solid rgba(245, 239, 228, 0.2);
+  padding-top: 24px;
+}
+
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+}
+
+.stat-num em {
+  font-style: italic;
+  color: var(--ember);
+}
+
+.stat-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 16px;
+  color: rgba(245, 239, 228, 0.65);
+  line-height: 1.5;
+}
+
+/* ===== ABOUT ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-quote-wrap {
+  position: sticky;
+  top: 120px;
+}
+
+.about-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-size: cover;
+  background-position: center 25%;
+  margin-bottom: 32px;
+  filter: contrast(1.02);
+  box-shadow: 0 20px 50px rgba(26, 20, 16, 0.18);
+}
+
+.about-quote {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.about-quote::before {
+  content: '"';
+  font-size: 80px;
+  line-height: 0.5;
+  color: var(--ember);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(26, 20, 16, 0.85);
+}
+
+.about-text p:first-child::first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 12px 0 0;
+  color: var(--ember-deep);
+  font-weight: 400;
+}
+
+.skills-list {
+  margin-top: 48px;
+  display: grid;
+  gap: 20px;
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.skill-row dt {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ember);
+  font-weight: 600;
+}
+
+.skill-row dd {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  padding: 140px 48px;
+  text-align: center;
+  background: var(--cream-warm);
+  border-top: 1px solid var(--rule);
+}
+
+.contact h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  max-width: 900px;
+  margin: 0 auto 32px;
+}
+
+.contact h2 em {
+  font-style: italic;
+  color: var(--ember-deep);
+}
+
+.contact-meta {
+  font-size: 17px;
+  color: rgba(26, 20, 16, 0.7);
+  margin-bottom: 48px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+}
+
+.contact-links a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 4px;
+  transition: all 0.2s;
+}
+
+.contact-links a:hover {
+  color: var(--ember);
+  border-color: var(--ember);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+footer .made {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* ===== CASE STUDY PAGES ===== */
+.case-hero {
+  padding: 160px 48px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ember);
+  text-decoration: none;
+  margin-bottom: 60px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.back-link:hover { color: var(--ember-deep); }
+
+.case-tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ember);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.case-h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 6.5vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+.case-h1 em {
+  font-style: italic;
+  color: var(--ember-deep);
+}
+
+.case-deck {
+  font-size: 22px;
+  line-height: 1.5;
+  color: rgba(26, 20, 16, 0.78);
+  max-width: 720px;
+  font-weight: 300;
+}
+
+.case-meta-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding: 40px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-top: 60px;
+}
+
+.meta-item dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(26, 20, 16, 0.5);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.meta-item dd {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.case-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 48px 120px;
+}
+
+/* Case study hero image (after meta bar, before body) */
+.case-feature-img {
+  width: 100%;
+  height: 56vh;
+  max-height: 640px;
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+  margin-top: 0;
+  filter: contrast(1.05);
+}
+
+/* Scope strip - 3 photos showing multi-format reality */
+.scope-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+  background: var(--ink);
+  height: 280px;
+}
+
+.scope-img {
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+/* Collateral grid - 6 print/digital pieces */
+.collateral-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 32px 0 48px;
+}
+
+.coll-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: zoom-in;
+  transition: transform 0.3s;
+}
+
+.coll-item:hover { transform: translateY(-4px); }
+
+.coll-item img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  background: var(--cream-warm);
+  border: 1px solid var(--rule);
+  display: block;
+}
+
+.coll-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(26, 20, 16, 0.6);
+  font-weight: 600;
+}
+
+/* In the wild moment - full-bleed event photo */
+.in-the-wild {
+  margin: 60px -48px;
+}
+
+.wild-img {
+  width: 100%;
+  aspect-ratio: 21/9;
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.05);
+  margin-bottom: 16px;
+}
+
+.wild-caption {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 16px !important;
+  color: rgba(26, 20, 16, 0.65) !important;
+  text-align: center;
+  margin: 0 48px !important;
+}
+
+/* Callout for series, partnerships, etc. */
+.callout {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 36px 40px;
+  margin: 40px 0;
+  position: relative;
+  border-left: 4px solid var(--ember);
+}
+
+.callout-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.callout-title {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  color: var(--cream);
+}
+
+.callout p {
+  color: rgba(245, 239, 228, 0.85) !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 20px !important;
+}
+
+.callout-link {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ember);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ember);
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+.callout-link:hover {
+  color: var(--cream);
+  border-color: var(--cream);
+}
+
+/* SOTW gallery */
+.sotw-gallery {
+  max-width: 1300px;
+  margin: 40px auto 0;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.sotw-piece {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  background: var(--cream-warm);
+  aspect-ratio: 4/5;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.sotw-piece:hover { transform: translateY(-6px); }
+
+.sotw-piece img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.sotw-piece:hover img { transform: scale(1.04); }
+
+.sotw-piece-meta {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px 24px;
+  background: linear-gradient(to top, rgba(26, 20, 16, 0.85), transparent);
+  color: var(--cream);
+  font-family: 'Fraunces', serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 16px;
+}
+
+.sotw-piece-meta em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.sotw-piece-meta span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: 'Inter Tight', sans-serif;
+  font-style: normal;
+  opacity: 0.8;
+}
+
+.case-body h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 60px 0 24px;
+  line-height: 1.1;
+}
+
+.case-body h2 em { font-style: italic; color: var(--ember-deep); }
+
+.case-body p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  color: rgba(26, 20, 16, 0.85);
+}
+
+.case-body ul {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.case-body ul li {
+  font-size: 17px;
+  line-height: 1.6;
+  padding: 14px 0 14px 32px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.case-body ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--ember);
+  font-family: 'Fraunces', serif;
+}
+
+.case-body ul li strong {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ember-deep);
+  font-size: 18px;
+  letter-spacing: -0.005em;
+}
+
+.pull-quote {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  line-height: 1.3;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  padding: 48px 0;
+  border-top: 1px solid var(--ember);
+  border-bottom: 1px solid var(--ember);
+  margin: 60px 0;
+  color: var(--ember-deep);
+  text-align: center;
+}
+
+.results-band {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 80px 48px;
+  margin: 60px 0;
+  border-radius: 0;
+}
+
+.results-band-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.results-band h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 32px;
+  letter-spacing: 0.05em;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.result {
+  border-top: 1px solid rgba(245, 239, 228, 0.2);
+  padding-top: 20px;
+}
+
+.result-num {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.result-num em { font-style: italic; color: var(--ember); }
+
+.result-label {
+  font-size: 13px;
+  margin-top: 12px;
+  color: rgba(245, 239, 228, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.case-nav-next {
+  border-top: 1px solid var(--rule);
+  padding: 60px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.3s;
+}
+
+.case-nav-next:hover { background: var(--cream-warm); }
+
+.next-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ember);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.next-title {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.next-arrow {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-style: italic;
+  color: var(--ember);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in > * {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+}
+
+.animate-in > *:nth-child(1) { animation-delay: 0.1s; }
+.animate-in > *:nth-child(2) { animation-delay: 0.2s; }
+.animate-in > *:nth-child(3) { animation-delay: 0.3s; }
+.animate-in > *:nth-child(4) { animation-delay: 0.4s; }
+.animate-in > *:nth-child(5) { animation-delay: 0.5s; }
+
+.hero-card {
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+}
+.card-1 { animation-delay: 0.4s; }
+.card-2 { animation-delay: 0.55s; }
+.card-3 { animation-delay: 0.7s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { gap: 20px; font-size: 12px; }
+  .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 40px; }
+  .hero-visual { height: 460px; }
+  .card-1 { right: 0; width: 180px; top: 10px; }
+  .card-2 { width: 180px; bottom: 10px; left: 0; }
+  .card-3 { width: 180px; top: 200px; right: 10px; padding: 20px; }
+  .card-3 .num { font-size: 42px; }
+  .atmosphere-strip { grid-template-columns: 1fr 1fr; height: auto; }
+  .atm-img { height: 200px; }
+  section.block { padding: 80px 24px; }
+  .work-intro { grid-template-columns: 1fr; gap: 24px; }
+  .case-card { grid-template-columns: 60px 1fr 30px; gap: 20px; padding: 28px 0; }
+  .case-card::before { left: -24px; right: -24px; }
+  .case-num { font-size: 12px; }
+  .case-num span { display: none; }
+  .case-meta { display: none; }
+  .stats { padding: 60px 24px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .stat-num { font-size: 48px; }
+  .sotw-card { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+  .sotw-imgs { height: 320px; }
+  .sotw-img-1 { width: 160px; height: 200px; left: 0; }
+  .sotw-img-2 { width: 170px; height: 215px; right: 0; }
+  .sotw-img-3 { width: 140px; height: 180px; left: 90px; bottom: 10px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 16px; padding: 28px 0; }
+  .timeline-item::before { left: -24px; right: -24px; }
+  .timeline-year { font-size: 18px; }
+  .timeline-body { grid-template-columns: 1fr; gap: 16px; }
+  .timeline-stat { grid-column: 1; grid-row: auto; padding-left: 0; border-left: none; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 16px; }
+  .timeline-stat em { font-size: 26px; }
+  .press-grid-three { grid-template-columns: 1fr; gap: 16px; }
+  .press-feature { padding: 28px; }
+  .press-headline { font-size: 24px; }
+  .press-secondary { grid-template-columns: 1fr; gap: 12px; padding: 24px; text-align: left; }
+  .press-secondary-content { flex-direction: column; gap: 6px; align-items: flex-start; }
+  .practice-row { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
+  .practice-row::before { left: -24px; right: -24px; }
+  .practice-row dt { font-size: 22px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-quote-wrap { position: static; }
+  .about-quote { position: static; font-size: 22px; }
+  .about-image { aspect-ratio: 4/3; margin-bottom: 24px; }
+  .case-feature-img { height: 40vh; min-height: 280px; }
+  .scope-strip { grid-template-columns: 1fr 1fr; height: auto; }
+  .scope-img { height: 180px; }
+  .collateral-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .coll-label { font-size: 10px; }
+  .in-the-wild { margin: 40px -24px; }
+  .wild-img { aspect-ratio: 4/3; }
+  .wild-caption { margin: 0 24px !important; }
+  .callout { padding: 28px 24px; margin: 32px 0; }
+  .callout-title { font-size: 22px; }
+  .skill-row { grid-template-columns: 1fr; gap: 8px; }
+  .contact { padding: 80px 24px; }
+  .case-hero { padding: 120px 24px 60px; }
+  .case-meta-bar { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .case-body { padding: 60px 24px 80px; }
+  .sotw-gallery { grid-template-columns: 1fr; padding: 0 24px; gap: 16px; }
+  .results-grid { grid-template-columns: 1fr; }
+  .results-band { padding: 60px 24px; }
+  .case-nav-next { padding: 40px 24px; flex-direction: column; gap: 20px; align-items: flex-start; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+  .marquee { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="showPage('home')">
+    <span class="dot"></span>
+    Nicole Arata
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home'); scrollTo({top: 0, behavior: 'smooth'})">Index</a></li>
+    <li><a onclick="showPage('home'); setTimeout(() => document.getElementById('work').scrollIntoView({behavior: 'smooth'}), 50)">Work</a></li>
+    <li><a onclick="showPage('home'); setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 50)">About</a></li>
+    <li><a onclick="showPage('home'); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 50)">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HOME ============ -->
+<div id="home" class="page active">
+
+<section class="hero">
+  <div class="animate-in">
+    <div class="hero-tag">Marketing Manager · San Francisco</div>
+    <h1>I build brands<br>that <em>actually</em><br>get ordered.</h1>
+    <p class="hero-sub">Ten years turning brand stories into measurable revenue — most recently building the marketing engine for a Korean BBQ brand that lives in a restaurant, on robotic food trucks, and in the first automated micro-restaurant of its kind in the US.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">See the Work →</a>
+      <a class="btn btn-secondary" href="mailto:Nicoleaarata@gmail.com">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-photo" style="background-image: url('assets/flames.jpg');"></div>
+    <div class="hero-card card-1">
+      <div class="num">980K</div>
+      <div class="label">Influencer views<br>on $6,670 spend</div>
+    </div>
+    <div class="hero-card card-2">
+      <div class="num">$30K</div>
+      <div class="label">Best-ever truck month,<br>after a strategy reset</div>
+    </div>
+    <div class="hero-card card-3">
+      <div class="num">3 / 1</div>
+      <div class="label">Brand formats · One<br>marketing function, built from zero</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ATMOSPHERIC STRIP ===== -->
+<section class="atmosphere-strip">
+  <div class="atm-img" style="background-image: url('assets/truck-orange.jpg');"></div>
+  <div class="atm-img atm-tall" style="background-image: url('assets/cocktail.jpg');"></div>
+  <div class="atm-img" style="background-image: url('assets/grill-spread.jpg');"></div>
+  <div class="atm-img" style="background-image: url('assets/truck-crowd.jpg');"></div>
+</section>
+
+<div class="marquee-section">
+  <div class="marquee">
+    <span>Brand Strategy <span class="star">✶</span> Influencer Marketing <span class="star">✶</span> Press & PR <span class="star">✶</span> Lifecycle Email <span class="star">✶</span> Paid Social <span class="star">✶</span> Event Marketing <span class="star">✶</span> Reputation Management <span class="star">✶</span> Catering Pipeline <span class="star">✶</span></span>
+    <span>Brand Strategy <span class="star">✶</span> Influencer Marketing <span class="star">✶</span> Press & PR <span class="star">✶</span> Lifecycle Email <span class="star">✶</span> Paid Social <span class="star">✶</span> Event Marketing <span class="star">✶</span> Reputation Management <span class="star">✶</span> Catering Pipeline <span class="star">✶</span></span>
+  </div>
+</div>
+
+<section class="block" id="work">
+  <div class="work-intro">
+    <div>
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-title">Four projects. <em>Real numbers.</em> No fluff.</h2>
+    </div>
+    <p>I build the strategy, write the brief, show up to the shoot, and pull the report. These are the projects I'd lead a team meeting with.</p>
+  </div>
+
+  <div class="case-grid">
+    <a class="case-card" onclick="showPage('case-influencer')">
+      <div class="case-num">01<span>Case Study</span></div>
+      <div>
+        <div class="case-title">Built an <em>influencer engine</em> on a shoestring</div>
+        <div class="case-meta">
+          <span>OLHSO · 2024</span>
+          <span>Influencer · Content</span>
+        </div>
+      </div>
+      <div class="case-arrow">→</div>
+    </a>
+
+    <a class="case-card" onclick="showPage('case-trucks')">
+      <div class="case-num">02<span>Case Study</span></div>
+      <div>
+        <div class="case-title">Reset the trucks' strategy to their <em>best month ever</em></div>
+        <div class="case-meta">
+          <span>OLHSO Trucks · 2025–2026</span>
+          <span>Strategy · Events · Partnerships</span>
+        </div>
+      </div>
+      <div class="case-arrow">→</div>
+    </a>
+
+    <a class="case-card" onclick="showPage('case-revenue')">
+      <div class="case-num">03<span>Case Study</span></div>
+      <div>
+        <div class="case-title">Launched <em>three new revenue lines</em> in one year</div>
+        <div class="case-meta">
+          <span>OLHSO House + Trucks · 2026</span>
+          <span>Product · Pricing · Sales</span>
+        </div>
+      </div>
+      <div class="case-arrow">→</div>
+    </a>
+
+    <a class="case-card" onclick="showPage('case-launch')">
+      <div class="case-num">04<span>Case Study</span></div>
+      <div>
+        <div class="case-title">Built the marketing function <em>from zero</em></div>
+        <div class="case-meta">
+          <span>OLHSO · 2024–2026</span>
+          <span>Strategy · Ops · Infrastructure</span>
+        </div>
+      </div>
+      <div class="case-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== PRACTICE AREAS ===== -->
+<section class="block practice-section">
+  <div class="practice-intro">
+    <div class="section-label">Practice Areas</div>
+    <h2 class="section-title">Beyond the <em>case studies.</em></h2>
+    <p class="practice-sub">The case studies show the headline work. Here's the broader practice underneath.</p>
+  </div>
+
+  <dl class="practice-list">
+    <div class="practice-row">
+      <dt>Lifecycle &amp; Email</dt>
+      <dd>Built post-receipt review automations and triggered email programs. At Stroke of the Wild, A/B tested subject lines to lift open rates by 30% in three months.</dd>
+    </div>
+    <div class="practice-row">
+      <dt>Paid Media</dt>
+      <dd>Run Google, Yelp, and Meta ad campaigns. Built OLHSO's first cross-channel attribution system tying spend to revenue.</dd>
+    </div>
+    <div class="practice-row">
+      <dt>Web &amp; CMS</dt>
+      <dd>Consolidated multi-format web presence (House, Trucks, Micro). Comfortable in WordPress, Shopify, Squarespace, Square, and Stripe — including invoicing and contract workflows.</dd>
+    </div>
+    <div class="practice-row">
+      <dt>Writing</dt>
+      <dd>Started in B2B content marketing (Radiant Logic) and consumer publishing (NerdWallet, 21M monthly readers, "What Good Looks Like" award x2). I write everything from press kits to product copy to subject lines.</dd>
+    </div>
+  </dl>
+</section>
+
+<!-- ===== PRESS ===== -->
+<section class="block press-section">
+  <div class="press-intro">
+    <div class="section-label">Press · Earned Media</div>
+    <h2 class="section-title">The work has been <em>noticed.</em></h2>
+  </div>
+
+  <div class="press-grid-three">
+    <a class="press-feature" href="https://techcrunch.com/2025/10/20/shin-starrs-robotic-food-truck-kitchen-will-serve-up-korean-bbq-at-techcrunch-disrupt-2025/" target="_blank">
+      <div class="press-tag">Tech</div>
+      <div class="press-pub">TechCrunch</div>
+      <div class="press-headline"><em>Startup Battlefield</em> 200, Disrupt 2025</div>
+      <div class="press-meta">Oct 2025 · Read on TechCrunch →</div>
+    </a>
+
+    <a class="press-feature" href="https://www.sfchronicle.com/food/restaurants/article/olhso-korean-truck-robot-19609590.php" target="_blank">
+      <div class="press-tag">Feature</div>
+      <div class="press-pub">SF Chronicle</div>
+      <div class="press-headline">Robots cook Korean BBQ <em>while driving</em></div>
+      <div class="press-meta">Aug 2024 · Read on SF Chronicle →</div>
+    </a>
+
+    <a class="press-feature" href="https://issuu.com/internationalretailgroup/docs/international_retail_magazine_chef_han_sungil_of_" target="_blank">
+      <div class="press-tag">Cover Story</div>
+      <div class="press-pub">International Retail Magazine</div>
+      <div class="press-headline">"Can A.I. Grill <em>with Soul?"</em></div>
+      <div class="press-meta">Spring/Summer 2025 · Read on Issuu →</div>
+    </a>
+  </div>
+
+  <a class="press-secondary" href="https://www.jgdpubs.com/epubs/36Media/Punch/2025/dec/54/" target="_blank">
+    <div class="press-secondary-tag">Also Featured In</div>
+    <div class="press-secondary-content">
+      <div class="press-secondary-pub">Punch Magazine</div>
+      <div class="press-secondary-headline"><em>"A Cut Above"</em></div>
+    </div>
+    <div class="press-secondary-meta">Winter 2025/26 · Read full feature →</div>
+  </a>
+
+  <a class="press-secondary" href="https://www.kron4.com/news/bay-area/giants-jung-hoo-lee-dines-at-peninsula-korean-bbq-restaurant/" target="_blank">
+    <div class="press-secondary-tag">Broadcast · Syndicated</div>
+    <div class="press-secondary-content">
+      <div class="press-secondary-pub">KRON4</div>
+      <div class="press-secondary-headline">Giants' Jung Hoo Lee <em>dines at OLHSO House</em></div>
+    </div>
+    <div class="press-secondary-meta">May 2026 · Also on Yahoo Sports &amp; AOL →</div>
+  </a>
+
+  <a class="press-secondary" href="https://foodondemand.com/01132026/olhso-is-building-a-multi-format-korean-bbq-platform/" target="_blank">
+    <div class="press-secondary-tag">Trade Feature</div>
+    <div class="press-secondary-content">
+      <div class="press-secondary-pub">Food On Demand</div>
+      <div class="press-secondary-headline">Building a <em>multi-format</em> Korean BBQ platform</div>
+    </div>
+    <div class="press-secondary-meta">Jan 2026 · Read on Food On Demand →</div>
+  </a>
+</section>
+
+<!-- ===== SIDE PROJECTS ===== -->
+<section class="block side-projects">
+  <div class="side-intro">
+    <div class="section-label">Side Project · Founder</div>
+    <h2 class="section-title">When I'm not marketing for someone else, <em>I'm building my own.</em></h2>
+  </div>
+
+  <a class="sotw-card" onclick="showPage('case-sotw')">
+    <div class="sotw-imgs">
+      <div class="sotw-img sotw-img-1" style="background-image: url('https://strokeofthewildart.com/cdn/shop/files/MarkhorHQ.jpg?v=1704942743&width=533');"></div>
+      <div class="sotw-img sotw-img-2" style="background-image: url('https://strokeofthewildart.com/cdn/shop/files/SwiftHQ.jpg?v=1704950230&width=533');"></div>
+      <div class="sotw-img sotw-img-3" style="background-image: url('https://strokeofthewildart.com/cdn/shop/files/Screenshot_2024-07-05_at_6.15.49_PM.png?v=1720228571&width=533');"></div>
+    </div>
+    <div class="sotw-content">
+      <div class="sotw-meta">2020 — Present · Original Art Brand</div>
+      <h3 class="sotw-title">Stroke of the <em>Wild</em></h3>
+      <p class="sotw-desc">My own original art brand — heritage-inspired oil paintings rooted in Palestinian identity, diaspora, and wildlife. Built from zero into a community of 2,500+ followers as solo founder, marketer, and artist.</p>
+      <div class="sotw-link">Read the case study <span>→</span></div>
+    </div>
+  </a>
+</section>
+
+<!-- ===== CAREER TIMELINE ===== -->
+<section class="block timeline-section">
+  <div class="timeline-intro">
+    <div class="section-label">The Long Arc</div>
+    <h2 class="section-title">Ten years across <em>personal finance, SaaS,</em> and <em>hospitality.</em></h2>
+  </div>
+
+  <ol class="timeline">
+    <li class="timeline-item">
+      <div class="timeline-year">2024 <span>→</span></div>
+      <div class="timeline-body">
+        <div class="timeline-role">Marketing Manager</div>
+        <div class="timeline-company">OLHSO by Shin Starr</div>
+        <div class="timeline-tag">Hospitality · Food + Tech</div>
+        <div class="timeline-stat"><em>980K</em> influencer views on $6,670 spend</div>
+      </div>
+    </li>
+
+    <li class="timeline-item">
+      <div class="timeline-year">2020 <span>→</span></div>
+      <div class="timeline-body">
+        <div class="timeline-role">Founder & Operator</div>
+        <div class="timeline-company">Stroke of the Wild</div>
+        <div class="timeline-tag">D2C · Original Art</div>
+        <div class="timeline-stat"><em>2,500+</em> followers built solo in 1.5 years</div>
+      </div>
+    </li>
+
+    <li class="timeline-item">
+      <div class="timeline-year">2018 <span>—</span> 2020</div>
+      <div class="timeline-body">
+        <div class="timeline-role">Content & Social Media Manager</div>
+        <div class="timeline-company">Radiant Logic</div>
+        <div class="timeline-tag">B2B SaaS · Identity Security</div>
+        <div class="timeline-stat"><em>2x</em> webinar signups in month one via organic social</div>
+      </div>
+    </li>
+
+    <li class="timeline-item">
+      <div class="timeline-year">2016 <span>—</span> 2017</div>
+      <div class="timeline-body">
+        <div class="timeline-role">Personal Finance Writer</div>
+        <div class="timeline-company">NerdWallet</div>
+        <div class="timeline-tag">Consumer Media · 21M readers</div>
+        <div class="timeline-stat"><em>2x</em> "What Good Looks Like" award winner</div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section class="stats">
+  <div class="stats-inner">
+    <div class="section-label">By the Numbers</div>
+    <h2 class="section-title">Two <em>years of receipts.</em></h2>
+
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">980<em>K</em></div>
+        <div class="stat-label">Content views from a single influencer campaign</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$30<em>K</em></div>
+        <div class="stat-label">Best-ever truck month, after a strategy reset I led</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">New revenue lines launched in one year: weddings, private dining, to-go</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">15<em>+</em></div>
+        <div class="stat-label">Earned press placements (TechCrunch, SF Chronicle, CBS, AP, more)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div class="about-quote-wrap">
+      <div class="about-image" style="background-image: url('assets/nicole.jpg');"></div>
+      <div class="about-quote">
+        I build the strategy, write the brief, show up to the shoot, and pull the report — no dropped balls, no delegating the hard parts.
+      </div>
+    </div>
+    <div class="about-text">
+      <p>I'm a marketing manager who came up writing — first at NerdWallet for 21M monthly readers, then in B2B SaaS, then running my own art brand on the side. The through-line is that I treat marketing like a craft and a P&L at the same time.</p>
+      <p>For the last two years I've been the solo marketing function at OLHSO, a Korean BBQ brand that's quietly become one of the more interesting food + tech stories in the Bay. I built the playbook from scratch — influencer, reviews, lifecycle, press, events, paid — and I built the spreadsheets that prove it worked.</p>
+      <p>The kind of teams I work best with want someone who can think in brand and operate in numbers. Hospitality, food + bev, consumer tech, or anything else that needs a marketer who'll get on the truck and ride along.</p>
+
+      <dl class="skills-list">
+        <div class="skill-row"><dt>Brand</dt><dd>Strategy, positioning, voice, campaign development, creative direction</dd></div>
+        <div class="skill-row"><dt>Growth</dt><dd>Influencer, paid social, Google Ads, SEO/SEM, lifecycle email, A/B testing</dd></div>
+        <div class="skill-row"><dt>Press & PR</dt><dd>Pitching, press kits, earned media, media relations</dd></div>
+        <div class="skill-row"><dt>Ops</dt><dd>SOPs, dashboards, vendor management, cross-channel attribution, P&L modeling</dd></div>
+        <div class="skill-row"><dt>Tools</dt><dd>Google Analytics, HubSpot, WordPress, Meta Business Suite, Canva, Notion</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Let's make <em>something good.</em></h2>
+  <p class="contact-meta">Based in San Francisco.</p>
+  <div class="contact-links">
+    <a href="mailto:Nicoleaarata@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/nicoleaarata/" target="_blank">LinkedIn</a>
+    <a href="tel:4158277975">415.827.7975</a>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Nicole Arata</div>
+  <div class="made">Made with care, in San Francisco.</div>
+</footer>
+
+</div>
+
+<!-- ============ CASE 1: INFLUENCER ============ -->
+<div id="case-influencer" class="page">
+  <div class="case-hero">
+    <a class="back-link" onclick="showPage('home'); setTimeout(() => document.getElementById('work').scrollIntoView(), 50)">← Back to Work</a>
+    <div class="case-tag">Case 01 · Influencer Marketing</div>
+    <h1 class="case-h1">Built an influencer engine <em>on a shoestring.</em></h1>
+    <p class="case-deck">A lot of brands overspend on single influencers, then lose faith. I believe in finding mass micro-influencers who are cost-effective and actually aligned with your brand and community — even when it takes hundreds of outreach messages, weekly shoot coordination, and heavy relationship management. It's about community and quality content, not virality.</p>
+
+    <dl class="case-meta-bar">
+      <div class="meta-item"><dt>Client</dt><dd>OLHSO by Shin Starr</dd></div>
+      <div class="meta-item"><dt>Role</dt><dd>Strategy & Execution</dd></div>
+      <div class="meta-item"><dt>Year</dt><dd>2024–2026</dd></div>
+      <div class="meta-item"><dt>Budget</dt><dd>$6,670</dd></div>
+    </dl>
+  </div>
+
+  <div class="case-feature-img" style="background-image: url('assets/nine-cuts.jpg');"></div>
+
+  <div class="case-body">
+    <h2>The <em>brief</em></h2>
+    <p>OLHSO needed Bay Area visibility, and the standard playbook was clear: spend $5K on one mid-tier creator and hope for a hit. I've watched a lot of brands try that, get one underwhelming post, and walk away from influencer entirely. I think they're walking away from the wrong version of it.</p>
+
+    <h2>The <em>approach</em></h2>
+    <p>The version of influencer that works is the slow version. Find creators whose communities actually overlap with yours. Treat them like long-term partners, not one-off transactions. Pay them fairly even when they're small. Coordinate around real product moments — not just "post a pretty picture."</p>
+    <p>That looks like hundreds of outreach messages to land 30 yeses, weekly shoot coordination across multiple creators at once, and the kind of relationship management that doesn't fit on a one-pager. Most of the work is invisible. The result is content that feels like word-of-mouth, not advertising.</p>
+    <ul>
+      <li>Sourced and pitched well over 30 creators to land 30 confirmed bookings</li>
+      <li>Negotiated flat-fee deals averaging ~$220 per creator — well below mid-tier rate cards</li>
+      <li>Briefed each creator around timely product angles — giveaways, new menu items, and our collab with Bibigo</li>
+      <li>Layered the resulting content into our owned channels and review-request flow</li>
+    </ul>
+
+    <h2>The engine, <em>year two</em></h2>
+    <p>In 2026 I pointed the same playbook at OLHSO House's new lunch and to-go menu. I scheduled rolling influencer lunch visits tied to our review program, then hosted a curated five-creator experience with a companion guide I wrote so every creator knew the dishes, the story, and the details worth filming.</p>
+
+    <div class="callout">
+      <div class="callout-tag">Beyond booking</div>
+      <h3 class="callout-title">I produce original creator content too.</h3>
+      <p>Booking influencers is one thing. Directing custom content with named talent is another. I produced a "Mystery Items" video series with Chef Han — high-concept, on-brand, and built specifically to perform on social.</p>
+      <a href="https://www.instagram.com/p/DPCKxRLCW93/" target="_blank" class="callout-link">Watch the series on Instagram →</a>
+    </div>
+
+    <p class="pull-quote">30 creators. $6,670 spent. 980,793 content views. Built one creator relationship at a time.</p>
+
+    <div class="results-band">
+      <div class="results-band-inner">
+        <h3>Results</h3>
+        <div class="results-grid">
+          <div class="result">
+            <div class="result-num">980<em>K</em></div>
+            <div class="result-label">Content views generated</div>
+          </div>
+          <div class="result">
+            <div class="result-num">1.27<em>M</em></div>
+            <div class="result-label">Combined creator reach</div>
+          </div>
+          <div class="result">
+            <div class="result-num">$<em>0.007</em></div>
+            <div class="result-label">Effective cost per view</div>
+          </div>
+          <div class="result">
+            <div class="result-num">30</div>
+            <div class="result-label">Creators booked & managed solo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="case-nav-next" onclick="showPage('case-trucks'); window.scrollTo(0,0)">
+    <div>
+      <div class="next-label">Next Case</div>
+      <div class="next-title">Reset the trucks' strategy to their best month ever</div>
+    </div>
+    <div class="next-arrow">→</div>
+  </a>
+
+  <footer>
+    <div>© 2026 Nicole Arata</div>
+    <div class="made">Made with care, in San Francisco.</div>
+  </footer>
+</div>
+
+<!-- ============ CASE 2: TRUCKS ============ -->
+<div id="case-trucks" class="page">
+  <div class="case-hero">
+    <a class="back-link" onclick="showPage('home'); setTimeout(() => document.getElementById('work').scrollIntoView(), 50)">← Back to Work</a>
+    <div class="case-tag">Case 02 · Strategy · Events · Partnerships</div>
+    <h1 class="case-h1">Reset the trucks' strategy to their <em>best month ever.</em></h1>
+    <p class="case-deck">OLHSO's robotic food trucks were built to cook meals en route to your door. It was a great story, but open cook-en-route service alone wasn't building a predictable business. I used my cost/profit model to make the case for a different one, then went out and booked it.</p>
+
+    <dl class="case-meta-bar">
+      <div class="meta-item"><dt>Client</dt><dd>OLHSO Trucks</dd></div>
+      <div class="meta-item"><dt>Role</dt><dd>Strategy, Partnerships &amp; Permitting</dd></div>
+      <div class="meta-item"><dt>Year</dt><dd>2025–2026</dd></div>
+      <div class="meta-item"><dt>Scope</dt><dd>2 trucks · SF + South Bay</dd></div>
+    </dl>
+  </div>
+
+  <div class="case-feature-img" style="background-image: url('assets/truck-crowd.jpg');"></div>
+
+  <div class="case-body">
+    <h2>The <em>brief</em></h2>
+    <p>By late 2025 I had a year of data from the trucks' first cost vs. profit model, and it said the same thing every month: roaming service was unpredictable, labor-heavy, and hard to plan prep around. The trucks needed fewer random days and more reliable ones.</p>
+
+    <h2>The <em>reset</em></h2>
+    <p>In December I brought our COO and our Roaming Hunger partner a 2026 projection plan and a proposal: move the trucks off open roaming and onto four focused revenue modes.</p>
+    <ul>
+      <li><strong>Residencies</strong> — recurring, fixed locations with built-in foot traffic</li>
+      <li><strong>Catering</strong> — booked, prepaid, and easy to prep for</li>
+      <li><strong>Monthly "hero" events</strong> — festivals and large gatherings, chosen by the numbers</li>
+      <li><strong>App pickup</strong> — keeping the tech story alive without driving the schedule</li>
+    </ul>
+    <p>I also redesigned shifts across a two-truck model to split hours evenly and cut overtime, and built a monthly prep plan the kitchen could actually use.</p>
+
+    <h2>Then I <em>booked it</em></h2>
+    <ul>
+      <li>Secured <strong>Off the Grid residencies</strong> at SF Embarcadero and CSU East Bay, then expanded CSU with added weekly shifts</li>
+      <li>Wrote and submitted every permit for the new service areas: health permits, commissary verification, and inspections across SF and Alameda counties</li>
+      <li>Got the truck permitted into <strong>TechCrunch Disrupt 2025 in under two weeks</strong>, at an event that doesn't normally host food trucks, which led to coverage in TechCrunch and the AP</li>
+      <li>Launched the SF Embarcadero truck with a two-week multi-channel rollout, and worked the window myself in week one</li>
+      <li>Built an event pipeline with brewery pop-ups, college athletics, Cal Academy, and a year-round Event Application Tracker with timed deadlines</li>
+      <li>Handled the insurance side too: multi-carrier COIs for venues like the Presidio Trust, and automatic COI delivery to cut turnaround</li>
+    </ul>
+
+    <p class="pull-quote">Fewer random days, more reliable ones. The model told us where to go; my job was getting us booked there.</p>
+
+    <div class="results-band">
+      <div class="results-band-inner">
+        <h3>Results</h3>
+        <div class="results-grid">
+          <div class="result">
+            <div class="result-num">$30<em>K</em></div>
+            <div class="result-label">Best-ever month for the South Bay truck (May 2026)</div>
+          </div>
+          <div class="result">
+            <div class="result-num">2</div>
+            <div class="result-label">Off the Grid residencies secured</div>
+          </div>
+          <div class="result">
+            <div class="result-num">&lt;2 <em>wks</em></div>
+            <div class="result-label">To permit the truck into TechCrunch Disrupt</div>
+          </div>
+          <div class="result">
+            <div class="result-num">↑</div>
+            <div class="result-label">Profit growth month over month after the reset</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>What it <em>taught me</em></h2>
+    <p>A good model only matters if someone acts on it. The projection sheet made the argument; the permits, residency pitches, and COIs made it real.</p>
+  </div>
+
+  <a class="case-nav-next" onclick="showPage('case-revenue'); window.scrollTo(0,0)">
+    <div>
+      <div class="next-label">Next Case</div>
+      <div class="next-title">Launched three new revenue lines in one year</div>
+    </div>
+    <div class="next-arrow">→</div>
+  </a>
+
+  <footer>
+    <div>© 2026 Nicole Arata</div>
+    <div class="made">Made with care, in San Francisco.</div>
+  </footer>
+</div>
+
+<!-- ============ CASE 3: NEW REVENUE LINES ============ -->
+<div id="case-revenue" class="page">
+  <div class="case-hero">
+    <a class="back-link" onclick="showPage('home'); setTimeout(() => document.getElementById('work').scrollIntoView(), 50)">← Back to Work</a>
+    <div class="case-tag">Case 03 · Product · Pricing · Sales</div>
+    <h1 class="case-h1">Launched <em>three new revenue lines</em> in one year.</h1>
+    <p class="case-deck">Marketing a restaurant usually means filling the tables you already have. I spent 2026 building new ways for the brand to make money: weddings, private dining, and to-go. Each one needed a product, a price, and a sales process before it needed a campaign.</p>
+
+    <dl class="case-meta-bar">
+      <div class="meta-item"><dt>Client</dt><dd>OLHSO House + Trucks</dd></div>
+      <div class="meta-item"><dt>Role</dt><dd>Product, Pricing &amp; Sales</dd></div>
+      <div class="meta-item"><dt>Year</dt><dd>2026</dd></div>
+      <div class="meta-item"><dt>Lines</dt><dd>Weddings · Private Dining · To-Go</dd></div>
+    </dl>
+  </div>
+
+  <div class="case-feature-img" style="background-image: url('assets/grill-spread.jpg');"></div>
+
+  <div class="case-body">
+    <h2>01 · <em>Wedding catering</em></h2>
+    <p>I built wedding packages from scratch, priced at about three times our standard per-serving price, and marketed them through Zola, bridal outreach, and a targeted Meta campaign. Then I ran our first wedding end to end: 75 guests at The Plant Connection SF. I handled the booking, invoicing, deposits, tastings, vendor coordination, and electric-chafer logistics, and served on-site the day of. It became our highest-margin event to date.</p>
+
+    <h2>02 · <em>Private dining patio</em></h2>
+    <p>OLHSO House had a beautiful garden patio and no way to sell it. I wrote the pricing, booking terms, and cancellation policy, built the inquiry pipeline and SOPs, and designed the sales brochure and email outreach.</p>
+    <ul>
+      <li>First bookings closed within weeks of launch, growing to 40-guest dinners and full buyouts</li>
+      <li>A Mother's Day prix fixe that opened the patio to smaller parties</li>
+      <li>A winterized, heated holiday patio with premium December pricing for peak season</li>
+    </ul>
+
+    <h2>03 · <em>To-go, delivery &amp; catering</em></h2>
+    <p>I launched a bento box program across every channel: pickup, commission-free delivery through our own website (powered by DoorDash drivers), Cater2Me, and direct catering. I oversaw the menu, packaging, photography, and web pages, and integrated online orders with our POS so menus and prices match everywhere. Along the way we delivered our largest Cater2Me order ever: 250 bowls for Intuit.</p>
+
+    <div class="collateral-grid">
+      <div class="coll-item">
+        <img src="assets/coll-wedding.jpg" alt="Wedding catering brochure">
+        <div class="coll-label">Wedding Catering Brochure</div>
+      </div>
+      <div class="coll-item">
+        <img src="assets/coll-patio.jpg" alt="Patio private dining brochure">
+        <div class="coll-label">Patio Private Dining Brochure</div>
+      </div>
+      <div class="coll-item">
+        <img src="assets/coll-lunch-1.jpg" alt="OLHSO lunch campaign asset">
+        <div class="coll-label">Lunch &amp; To-Go Campaign</div>
+      </div>
+    </div>
+
+    <p class="pull-quote">Before a new line needs a campaign, it needs a product, a price, and a way to say yes.</p>
+
+    <div class="results-band">
+      <div class="results-band-inner">
+        <h3>Results</h3>
+        <div class="results-grid">
+          <div class="result">
+            <div class="result-num">3</div>
+            <div class="result-label">New revenue lines launched in one year</div>
+          </div>
+          <div class="result">
+            <div class="result-num">~3<em>x</em></div>
+            <div class="result-label">Wedding pricing vs. our standard per-serving price</div>
+          </div>
+          <div class="result">
+            <div class="result-num">250</div>
+            <div class="result-label">Bowls in our largest-ever catering delivery</div>
+          </div>
+          <div class="result">
+            <div class="result-num">0<em>%</em></div>
+            <div class="result-label">Commission on website delivery orders</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="case-nav-next" onclick="showPage('case-launch'); window.scrollTo(0,0)">
+    <div>
+      <div class="next-label">Next Case</div>
+      <div class="next-title">Built the marketing function from zero</div>
+    </div>
+    <div class="next-arrow">→</div>
+  </a>
+
+  <footer>
+    <div>© 2026 Nicole Arata</div>
+    <div class="made">Made with care, in San Francisco.</div>
+  </footer>
+</div>
+
+<!-- ============ CASE 4: BUILT THE FUNCTION ============ -->
+<div id="case-launch" class="page">
+  <div class="case-hero">
+    <a class="back-link" onclick="showPage('home'); setTimeout(() => document.getElementById('work').scrollIntoView(), 50)">← Back to Work</a>
+    <div class="case-tag">Case 04 · Strategy · Ops · Infrastructure</div>
+    <h1 class="case-h1">Built the marketing function <em>from zero.</em></h1>
+    <p class="case-deck">When I joined OLHSO, there was no marketing infrastructure — no dashboards, no SOPs, no attribution, no calendar, no budget model. Two years later, there is. This is the case study about all the work that doesn't fit in a campaign recap.</p>
+
+    <dl class="case-meta-bar">
+      <div class="meta-item"><dt>Client</dt><dd>OLHSO by Shin Starr</dd></div>
+      <div class="meta-item"><dt>Role</dt><dd>Solo Marketing Function</dd></div>
+      <div class="meta-item"><dt>Years</dt><dd>2024 — 2026</dd></div>
+      <div class="meta-item"><dt>Scope</dt><dd>House · Trucks · Micro-Restaurants</dd></div>
+    </dl>
+  </div>
+
+  <div class="case-feature-img" style="background-image: url('assets/cheers.jpg');"></div>
+
+  <div class="scope-strip">
+    <div class="scope-img" style="background-image: url('assets/truck-orange.jpg');"></div>
+    <div class="scope-img" style="background-image: url('assets/truck-autowok.jpg');"></div>
+    <div class="scope-img" style="background-image: url('assets/truck-app.jpg');"></div>
+  </div>
+
+  <div class="case-body">
+    <h2>The <em>brief</em></h2>
+    <p>OLHSO is a multi-format Korean BBQ brand: a flagship restaurant, a fleet of robotic food trucks, and the first automated micro-restaurant KBBQ concept in the US. It needed marketing that could speak to all three formats at once — and someone willing to build the systems, not just run the campaigns.</p>
+
+    <h2>The <em>build</em></h2>
+    <p>I treated year one as an infrastructure project disguised as a marketing role. Campaigns were the visible output; the real work was making it possible to run those campaigns repeatedly, profitably, and without me holding all the context in my head.</p>
+
+    <h2>Infrastructure I <em>shipped</em></h2>
+    <ul>
+      <li><strong>Cross-channel attribution system</strong> — first-ever tracking tying Google, Yelp, influencer, and print spend back to app downloads, web traffic, and orders</li>
+      <li><strong>Truck cost vs. profit model</strong> — the trucks' first P&L sheet, used to steer event selection toward profitable months</li>
+      <li><strong>2026 Marketing Budget</strong> — proposed and built from scratch to align spend with growth targets across House and Trucks</li>
+      <li><strong>SOPs & SLAs</strong> — repeatable playbooks for catering intake, event quoting, post-event debriefs, review response, and kitchen comms</li>
+      <li><strong>Annual truck event calendar</strong> — filled, with deadline pings and live-request alignment with kitchen prep</li>
+      <li><strong>Monthly performance dashboards</strong> — recurring reports on ratings, CAC/ROAS, catering ROI, email/SMS revenue</li>
+      <li><strong>Centralized marketing asset library</strong> — single source of truth for brand consistency across formats</li>
+      <li><strong>Catering pipeline</strong> — intake → quote → contract workflow with pricing guardrails, plus DoorDash and Cater2Me integrations. Largest booking to date: our first wedding catering at $6K+</li>
+      <li><strong>Review operations</strong> — audited 600+ reviews, standardized reservation language across every channel, and built a review-request SOP with a QR raffle and automated post-receipt emails</li>
+      <li><strong>Event Application Tracker</strong> — a year-round calendar of events with timed application deadlines, so truck revenue is planned, not rushed</li>
+    </ul>
+
+    <p class="pull-quote">The campaigns get the press release. The systems get the next year of revenue.</p>
+
+    <div class="callout">
+      <div class="callout-tag">Tradeshow Management</div>
+      <h3 class="callout-title">Three major activations. Each one under budget.</h3>
+      <p>Tradeshows are where marketing meets logistics, sales, and crisis management — usually all at once. I project-managed NAMA Las Vegas (2025), AXC 2025, and AXC Nashville (2026) end-to-end: shipping, rigging, badge registration, utility orders, booth design, team scheduling, and on-site lead capture. AXC 2026 came in at <strong>$11,920 against a $13,515 budget</strong>, with a 1,400-word internal post-mortem feeding next year's planning.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-tag">Live Brand Activations</div>
+      <h3 class="callout-title">Producing the moments that drive the metrics.</h3>
+      <p>Some marketing happens in feeds. Some has to happen in a room. I've produced in-person brand activations to drive product launches and category awareness — including a charcoal menu patio party at the House and a tasting event for the OLHSO truck. Each one combined vendor coordination, guest curation, on-site content capture, and real revenue at the door.</p>
+    </div>
+
+    <h2>Selected <em>collateral</em></h2>
+    <p>Most marketing managers brief designers. I do both — strategy and design — across print, digital, and on-site materials.</p>
+
+    <div class="collateral-grid">
+      <div class="coll-item">
+        <img src="assets/coll-wedding.jpg" alt="Wedding catering brochure">
+        <div class="coll-label">Wedding Catering Brochure</div>
+      </div>
+      <div class="coll-item">
+        <img src="assets/coll-patio.jpg" alt="Patio private dining brochure">
+        <div class="coll-label">Patio Private Dining Brochure</div>
+      </div>
+      <div class="coll-item">
+        <img src="assets/coll-truck-menu.jpg" alt="OLHSO truck menu poster">
+        <div class="coll-label">Truck Menu Poster</div>
+      </div>
+      <div class="coll-item">
+        <img src="assets/coll-aframe.jpg" alt="SF Embarcadero launch A-frame sign">
+        <div class="coll-label">SF Embarcadero Launch A-frame</div>
+      </div>
+      <div class="coll-item">
+        <img src="assets/coll-nama.jpg" alt="NAMA tradeshow flier">
+        <div class="coll-label">NAMA Tradeshow Flier</div>
+      </div>
+      <div class="coll-item">
+        <img src="assets/coll-lunch-1.jpg" alt="OLHSO Lunch campaign asset">
+        <div class="coll-label">OLHSO Lunch Campaign</div>
+      </div>
+    </div>
+
+    <h2>Campaigns the <em>infrastructure unlocked</em></h2>
+    <p>Once the systems were running, the campaigns could move faster and prove themselves. A few highlights:</p>
+    <ul>
+      <li><strong>Influencer engine</strong> — 30 creators, $6,670 spent, 980K content views (full case study →)</li>
+      <li><strong>OLHSO at Embarcadero</strong> — full multi-channel launch in 2 weeks: social, email, influencer, printed collateral, on-site presence, second DoorDash storefront onboarded day one</li>
+      <li><strong>OLHSO Lunch launch</strong> — multi-channel rollout with social, email, influencer push, and printed table tents and A-frames; paired with a parallel review-volume campaign</li>
+      <li><strong>Press</strong> — earned coverage in TechCrunch, SF Chronicle, CBS News, AP Archive, IRG Magazine cover story, Punch Magazine, KRON4, Food On Demand, QSR, and more trade and local outlets</li>
+    </ul>
+
+    <div class="results-band">
+      <div class="results-band-inner">
+        <h3>The cumulative receipts</h3>
+        <div class="results-grid">
+          <div class="result">
+            <div class="result-num">3</div>
+            <div class="result-label">Brand formats marketed in parallel (House, Trucks, Micro)</div>
+          </div>
+          <div class="result">
+            <div class="result-num">15<em>+</em></div>
+            <div class="result-label">Earned press placements (TechCrunch, SF Chronicle, CBS, AP, more)</div>
+          </div>
+          <div class="result">
+            <div class="result-num">1</div>
+            <div class="result-label">First-ever attribution system tying spend to revenue</div>
+          </div>
+          <div class="result">
+            <div class="result-num">∞</div>
+            <div class="result-label">SOPs, dashboards, and budget models that outlast me</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="in-the-wild">
+      <div class="wild-img" style="background-image: url('assets/truck-crowd.jpg');"></div>
+      <p class="wild-caption">Marketing in the wild — OLHSO trucks at Chuseok, San Francisco.</p>
+    </div>
+
+    <h2>What I <em>learned</em></h2>
+    <p>The unglamorous work compounds. A budget spreadsheet built once and maintained quarterly is worth more than a campaign that goes viral and disappears. An SOP that runs every week without me is worth more than any one-off push. The job, eventually, is to build the engine and then make sure it runs without you in the room.</p>
+    <p>The kind of work I want to keep doing: bringing this builder's instinct to teams that need someone willing to write the docs, set the dashboards, <em>and</em> run the campaigns.</p>
+  </div>
+
+  <a class="case-nav-next" onclick="showPage('case-sotw'); window.scrollTo(0,0)">
+    <div>
+      <div class="next-label">Next Case</div>
+      <div class="next-title">Founded my own art brand from zero</div>
+    </div>
+    <div class="next-arrow">→</div>
+  </a>
+
+  <footer>
+    <div>© 2026 Nicole Arata</div>
+    <div class="made">Made with care, in San Francisco.</div>
+  </footer>
+</div>
+
+<!-- ============ CASE 4: STROKE OF THE WILD ============ -->
+<div id="case-sotw" class="page">
+  <div class="case-hero">
+    <a class="back-link" onclick="showPage('home'); setTimeout(() => document.getElementById('work').scrollIntoView(), 50)">← Back to Work</a>
+    <div class="case-tag">Side Project · Founder</div>
+    <h1 class="case-h1">Founded my own art brand <em>from zero.</em></h1>
+    <p class="case-deck">Stroke of the Wild is my original art practice — heritage-inspired oil paintings rooted in Palestinian identity, diaspora, and wildlife. I'm the artist, the brand, and the marketing department.</p>
+
+    <dl class="case-meta-bar">
+      <div class="meta-item"><dt>Brand</dt><dd>Stroke of the Wild</dd></div>
+      <div class="meta-item"><dt>Role</dt><dd>Founder & Solo Operator</dd></div>
+      <div class="meta-item"><dt>Year</dt><dd>2020 — Present</dd></div>
+      <div class="meta-item"><dt>Type</dt><dd>D2C Original Art</dd></div>
+    </dl>
+  </div>
+
+  <!-- Hero gallery -->
+  <div class="sotw-gallery">
+    <a class="sotw-piece" href="https://strokeofthewildart.com/products/the-markhor" target="_blank">
+      <img src="https://strokeofthewildart.com/cdn/shop/files/MarkhorHQ.jpg?v=1704942743&width=800" alt="The Markhor">
+      <div class="sotw-piece-meta"><em>The Markhor</em><span>Oil on Canvas</span></div>
+    </a>
+    <a class="sotw-piece" href="https://strokeofthewildart.com/products/swift" target="_blank">
+      <img src="https://strokeofthewildart.com/cdn/shop/files/SwiftHQ.jpg?v=1704950230&width=800" alt="Swift">
+      <div class="sotw-piece-meta"><em>Swift</em><span>Oil on Canvas</span></div>
+    </a>
+    <a class="sotw-piece" href="https://strokeofthewildart.com/products/hare" target="_blank">
+      <img src="https://strokeofthewildart.com/cdn/shop/files/Screenshot_2024-07-05_at_6.15.49_PM.png?v=1720228571&width=800" alt="The Hare">
+      <div class="sotw-piece-meta"><em>The Hare</em><span>Oil on Canvas</span></div>
+    </a>
+  </div>
+
+  <div class="case-body">
+    <h2>The <em>brand</em></h2>
+    <p>Stroke of the Wild started with a story I needed to tell. My maternal grandmother was displaced from Ramle, Palestine, in 1948 — and the brand grew out of a desire to honor that lineage through wildlife and "wild women" portraiture. The name itself comes from a comment I kept hearing from collectors: that I infuse <em>movement</em> in each line.</p>
+    <p>The brand voice is warm but unflinching. The visual world leans into texture, oil, gold leaf, and unfinished graphite. Every product page, every email, every social caption is written by me — and the consistency is the point.</p>
+
+    <h2>The <em>marketing</em></h2>
+    <p>I built and ran the entire growth function as a side project — meaning every dollar of marketing had to pay for itself. No team, no budget cushion, just the work.</p>
+    <ul>
+      <li>Grew an audience to 2,500+ across Instagram and TikTok in 1.5 years</li>
+      <li>Partnered with 24 influencers, reaching 40K Instagram followers and 757K TikTok viewers in one year</li>
+      <li>Conducted 48 customer interviews to build a real audience profile — drove 10% content engagement rate</li>
+      <li>A/B tested email subject lines and grew open rates 30% in three months</li>
+      <li>Built the storefront, the visual system, the photography, and the copy myself</li>
+    </ul>
+
+    <p class="pull-quote">"The role of the artist is to make the revolution irresistible." — Toni Cade Bambara</p>
+
+    <div class="results-band">
+      <div class="results-band-inner">
+        <h3>Results</h3>
+        <div class="results-grid">
+          <div class="result">
+            <div class="result-num">2,500<em>+</em></div>
+            <div class="result-label">Audience grown across IG + TikTok in 1.5 years</div>
+          </div>
+          <div class="result">
+            <div class="result-num">757<em>K</em></div>
+            <div class="result-label">TikTok viewers via 24 creator partnerships</div>
+          </div>
+          <div class="result">
+            <div class="result-num">+30%</div>
+            <div class="result-label">Email open rate lift via A/B testing</div>
+          </div>
+          <div class="result">
+            <div class="result-num">10%</div>
+            <div class="result-label">Content engagement rate (industry avg ~1–3%)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Why it <em>matters</em> to my work</h2>
+    <p>Running my own brand keeps me honest. I can't outsource the parts of marketing I don't enjoy — I have to build the website, ship the painting, write the apology email, post the reel. That texture shows up in everything I do for the brands I work for: I know how the spreadsheet feels when there's no one else to escalate to.</p>
+    <p style="margin-top: 24px;"><a href="https://strokeofthewildart.com" target="_blank" style="color: var(--ember-deep); border-bottom: 1px solid var(--ember-deep); padding-bottom: 2px; text-decoration: none; font-style: italic; font-family: 'Fraunces', serif; font-size: 19px;">Visit strokeofthewildart.com →</a></p>
+  </div>
+
+  <a class="case-nav-next" onclick="showPage('home'); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior:'smooth'}), 50)">
+    <div>
+      <div class="next-label">Let's Work Together</div>
+      <div class="next-title">Get in touch →</div>
+    </div>
+    <div class="next-arrow">✶</div>
+  </a>
+
+  <footer>
+    <div>© 2026 Nicole Arata</div>
+    <div class="made">Made with care, in San Francisco.</div>
+  </footer>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (id === 'home') {
+    // no-op, let nav links handle scroll
+  } else {
+    window.scrollTo(0, 0);
+  }
+}
+</script>
+
+</body>
+</html>
