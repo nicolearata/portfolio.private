@@ -24,6 +24,9 @@ function loginPage(showError: boolean, next: string): Response {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Nicole Arata — Portfolio</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -108,4 +111,6 @@ export default async (request: Request, context: Context) => {
 
 export const config: Config = {
   path: "/*",
+  // Icons stay public so the browser tab shows them on the login screen too.
+  excludedPath: ["/favicon.svg", "/favicon-32.png", "/apple-touch-icon.png"],
 };
